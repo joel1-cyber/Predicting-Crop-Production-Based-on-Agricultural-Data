@@ -299,9 +299,9 @@ def ModelTraining_Predicting(CropData):
     rfr.fit(X_train,Y_train)
     Y_pred=rfr.predict(X_test)
     print(Y_pred)
+    PredictionVisualization (Y_test,Y_pred,ModelName)
     ModelEvaluation(Y_test,Y_pred,"Random Tree Regression",X_train,Y_train)
-
-
+    
     ModelPerformanceChecking(X_train,Y_train,rfr)
 
     joblib.dump(rfr, "crop_production_model.pkl")  
@@ -384,7 +384,7 @@ def Streamlitinput_Prediction(CropData):
     
 
 def ModelBuilding(CropData):
-    FeatureSelection(CropData) 
+    FeatureSelection(CropData)  
     ModelTraining_Predicting(CropData)
     Streamlitinput_Prediction(CropData)
     
@@ -400,7 +400,7 @@ def main():
     if Selectedtab=="EDA":
         EDA(CleanedCropData)
     else:
-        print("Model Evaluation Started...")
+        print("Model Building Started...")
         ModelBuilding(CleanedCropData)
 
 
