@@ -299,8 +299,8 @@ def ModelTraining_Predicting(CropData):
     rfr.fit(X_train,Y_train)
     Y_pred=rfr.predict(X_test)
     print(Y_pred)
-    PredictionVisualization (Y_test,Y_pred,ModelName)
-    ModelEvaluation(Y_test,Y_pred,"Random Tree Regression",X_train,Y_train)
+    PredictionVisualization (Y_test,Y_pred,"Random Tree Regression")
+    ModelEvaluation(Y_test,Y_pred)
     
     ModelPerformanceChecking(X_train,Y_train,rfr)
 
@@ -313,7 +313,7 @@ def ModelTraining_Predicting(CropData):
 
 
 #Evaluation Metrics 
-def ModelEvaluation(Y_test,Y_pred,ModelName):
+def ModelEvaluation(Y_test,Y_pred):
     print('Model Evaluation Started...')
     mae=mean_absolute_error(Y_test,Y_pred)
     mse=mean_squared_error(Y_test,Y_pred)
